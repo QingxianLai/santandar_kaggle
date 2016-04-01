@@ -12,11 +12,11 @@ from sklearn.svm import OneClassSVM
 
 from subprocess import check_output
 
-print(check_output(["ls", "../data"]).decode("utf8"))
+print(check_output(["ls", "./data"]).decode("utf8"))
 
 # load data
-df_train = pd.read_csv('../data/train.csv')
-df_test = pd.read_csv('../data/test.csv')
+df_train = pd.read_csv('./data/train.csv')
+df_test = pd.read_csv('./data/test.csv')
 
 # remove constant columns
 remove = []

@@ -9,7 +9,6 @@ X_train, X_test, y_train, y_test = \
                      test_size=0.1, random_state = 1234)
 
 # linear svm classfier
-svc = SVC(C=1, kernel='linear')
+svc = SVC(C=1, kernel='linear', verbose=True)
 svc.fit(X_train, y_train)
-
-
+score = svc.score(X_test, y_test)
