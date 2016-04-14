@@ -50,7 +50,7 @@ len_train = len(X_train)
 len_test  = len(X_test)
 
 # classifier
-clf = xgb.XGBClassifier(missing=np.nan, max_depth=5, n_estimators=350, learning_rate=0.03, nthread=4, subsample=0.95, colsample_bytree=0.85, seed=4242)
+clf = xgb.XGBClassifier(missing=np.nan, max_depth=6, n_estimators=350, learning_rate=0.1, nthread=4, subsample=0.95, colsample_bytree=0.85, seed=1234)
 
 X_fit, X_eval, y_fit, y_eval= train_test_split(X_train, y_train, test_size=0.3)
 
@@ -62,7 +62,7 @@ print('Overall AUC:', roc_auc_score(y_train, clf.predict_proba(X_train)[:,1]))
 # predicting
 y_pred= clf.predict_proba(X_test)[:,1]
 
-submission = pd.DataFrame({"ID":id_test, "TARGET":y_pred})
+submission = pd.DataFrame({"id":id_test, "target":y_pred})
 submission.to_csv("submission.csv", index=False)
 
 print('Completed!')
